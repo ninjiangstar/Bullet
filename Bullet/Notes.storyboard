@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="45R-3n-3Zf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notes View Controller-->
+        <scene sceneID="FvE-Y9-X9r">
+            <objects>
+                <viewController id="45R-3n-3Zf" customClass="NotesViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tCC-45-3ku"/>
+                        <viewControllerLayoutGuide type="bottom" id="xfW-uH-nUo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3DK-KH-JIc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n23-cH-qMr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="gU5-z0-a6f" kind="embed" id="3gq-gV-atO"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4f-bw-pC7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ewl-fc-NlX"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="7Uz-O5-8Yu" kind="embed" id="Q8z-yA-ct0"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="n23-cH-qMr" secondAttribute="trailing" id="GB6-bO-vSW"/>
+                            <constraint firstItem="d4f-bw-pC7" firstAttribute="leading" secondItem="3DK-KH-JIc" secondAttribute="leading" id="Sax-Yx-tHU"/>
+                            <constraint firstItem="n23-cH-qMr" firstAttribute="leading" secondItem="3DK-KH-JIc" secondAttribute="leading" id="ahI-eL-e94"/>
+                            <constraint firstItem="n23-cH-qMr" firstAttribute="top" secondItem="3DK-KH-JIc" secondAttribute="top" id="enE-e7-yZB"/>
+                            <constraint firstItem="d4f-bw-pC7" firstAttribute="top" secondItem="3DK-KH-JIc" secondAttribute="top" id="jJZ-aX-x01"/>
+                            <constraint firstAttribute="trailing" secondItem="d4f-bw-pC7" secondAttribute="trailing" id="xip-82-mZD"/>
+                            <constraint firstItem="xfW-uH-nUo" firstAttribute="top" secondItem="n23-cH-qMr" secondAttribute="bottom" id="xvg-rB-Plw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AgL-KN-J5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="212"/>
+        </scene>
+        <!--Notes Bar View Controller-->
+        <scene sceneID="Jvf-9Y-EM4">
+            <objects>
+                <viewController id="7Uz-O5-8Yu" customClass="NotesBarViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lni-qU-zNL"/>
+                        <viewControllerLayoutGuide type="bottom" id="BGO-C0-h3g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dbK-Z5-d0O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leC-1S-hZQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSF-k0-g0L">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1y-N7-Rqz">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="26"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4G-ec-AYe">
+                                                <rect key="frame" x="0.0" y="15" width="375" height="25"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JSF-k0-g0L" firstAttribute="top" secondItem="leC-1S-hZQ" secondAttribute="top" id="0V1-D9-Y03"/>
+                                    <constraint firstAttribute="trailing" secondItem="JSF-k0-g0L" secondAttribute="trailing" id="O2r-C9-BtA"/>
+                                    <constraint firstAttribute="bottom" secondItem="JSF-k0-g0L" secondAttribute="bottom" id="fVg-p1-0mk"/>
+                                    <constraint firstAttribute="height" constant="40" id="jf2-mj-6ur"/>
+                                    <constraint firstItem="JSF-k0-g0L" firstAttribute="leading" secondItem="leC-1S-hZQ" secondAttribute="leading" id="pcJ-f8-AUg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BGO-C0-h3g" firstAttribute="top" secondItem="leC-1S-hZQ" secondAttribute="bottom" id="MZV-9t-1iw"/>
+                            <constraint firstItem="leC-1S-hZQ" firstAttribute="leading" secondItem="dbK-Z5-d0O" secondAttribute="leading" id="bxO-x8-Sui"/>
+                            <constraint firstAttribute="trailing" secondItem="leC-1S-hZQ" secondAttribute="trailing" id="dXA-OY-CjD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBI-WG-s6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="-61"/>
+        </scene>
+        <!--Notes Table View Controller-->
+        <scene sceneID="9tY-zi-vtu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IA5-Kw-CaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="gU5-z0-a6f" customClass="NotesTableViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="kH1-LU-20G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesTableCell" rowHeight="174" id="iQV-cw-YCM">
+                                <rect key="frame" x="0.0" y="56" width="375" height="174"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iQV-cw-YCM" id="dN2-Ll-Dc5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="174"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="981-vY-XWx" customClass="NotesTextView" customModule="Bullet" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="8" width="359" height="158"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="981-vY-XWx" firstAttribute="leading" secondItem="dN2-Ll-Dc5" secondAttribute="leadingMargin" id="2yX-Hu-Vd1"/>
+                                        <constraint firstItem="981-vY-XWx" firstAttribute="bottom" secondItem="dN2-Ll-Dc5" secondAttribute="bottomMargin" id="6kp-nh-S5J"/>
+                                        <constraint firstItem="981-vY-XWx" firstAttribute="top" secondItem="dN2-Ll-Dc5" secondAttribute="topMargin" id="kgi-Zq-USW"/>
+                                        <constraint firstItem="981-vY-XWx" firstAttribute="trailing" secondItem="dN2-Ll-Dc5" secondAttribute="trailingMargin" id="oEB-pa-E7e"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1864.8" y="368.36581709145429"/>
+        </scene>
+    </scenes>
+</document>

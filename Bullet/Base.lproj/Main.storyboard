@@ -1,26 +1,85 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="Fou-TO-I1Z" kind="custom" identifier="mainToNotes" customClass="MainToNotesSegue" id="dUg-ab-Xn6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-604" y="191"/>
+        </scene>
+        <!--Carousel Page View Controller-->
+        <scene sceneID="D2w-Qn-JKA">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="8xE-u5-xJF" customClass="CarouselPageViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="Fou-TO-I1Z" kind="custom" identifier="carouselToNotes" customClass="CarouselToNotesSegue" id="Ah2-vP-DIr"/>
+                        <segue destination="Bmm-ac-9yJ" kind="custom" identifier="carouselToArchive" customClass="CarouselToArchiveSegue" id="IEW-5m-vcw"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WIg-N7-mPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="369" y="1191"/>
+        </scene>
+        <!--Archive Table View Controller-->
+        <scene sceneID="KkS-x4-imF">
+            <objects>
+                <tableViewController id="Bmm-ac-9yJ" customClass="ArchiveTableViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Bku-Tf-1Bc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArchiveTableCell" id="Jq2-pk-MmF">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jq2-pk-MmF" id="ifV-ar-c9b">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bmm-ac-9yJ" id="ejF-SG-dEi"/>
+                            <outlet property="delegate" destination="Bmm-ac-9yJ" id="exl-2C-zqf"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="8xE-u5-xJF" kind="custom" identifier="archiveToCarousel" customClass="ArchiveToCarouselSegue" id="ScU-PP-E7P"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qU1-BE-JSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="369" y="2136"/>
+        </scene>
+        <!--Notes Page View Controller-->
+        <scene sceneID="Ze2-gO-qZ7">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Fou-TO-I1Z" customClass="NotesPageViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="8xE-u5-xJF" kind="custom" identifier="notesToCarousel" customClass="NotesToCarouselSegue" id="hTw-2y-6BN"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gq6-dJ-jU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="212"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dUg-ab-Xn6"/>
+        <segue reference="hTw-2y-6BN"/>
+    </inferredMetricsTieBreakers>
 </document>

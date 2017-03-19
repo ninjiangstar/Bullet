@@ -19,12 +19,16 @@ class Entry: NSObject, NSCoding {
     
     var type: EntryType!
     var text: String!
-    var isHidden: Bool
+    var isHidden: Bool = false
     
     override init() {
         type = .paragraph
         text = ""
-        isHidden = false
+    }
+    
+    init(type: EntryType, text: String) {
+        self.type = type
+        self.text = text
     }
     
     required init?(coder aDecoder: NSCoder) {

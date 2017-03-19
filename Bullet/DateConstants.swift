@@ -16,7 +16,7 @@ class DateConstants {
     
     class var dateFormatter: DateFormatter! {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "m ([ .\t-])* dd [,.stndrh\t ]+ y"
+        dateFormatter.dateStyle = .medium
         return dateFormatter
     }
     
@@ -55,6 +55,21 @@ class DateConstants {
             case 6: return .friday
             case 7: return .saturday
             default: break
+            }
+        }
+        return nil
+    }
+    
+    static func getDayOfWeekString(of date: Date) -> String? {
+        if let dayOfWeek = getDayOfWeek(of: date) {
+            switch dayOfWeek {
+            case .sunday: return "Sunday"
+            case .monday: return "Monday"
+            case .tuesday: return "Tuesday"
+            case .wednesday: return "Wednesday"
+            case .thursday: return "Thursday"
+            case .friday: return "Friday"
+            case .saturday: return "Saturday"
             }
         }
         return nil

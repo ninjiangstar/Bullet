@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F23D100E1E7D220C006CC9FF /* NotesBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D100D1E7D220C006CC9FF /* NotesBarViewController.swift */; };
 		F23D10101E7D2602006CC9FF /* NotesToCarouselSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D100F1E7D2602006CC9FF /* NotesToCarouselSegue.swift */; };
 		F23D10121E7D2610006CC9FF /* CarouselToNotesSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D10111E7D2610006CC9FF /* CarouselToNotesSegue.swift */; };
 		F23D10141E7D261D006CC9FF /* CarouselToArchiveSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D10131E7D261D006CC9FF /* CarouselToArchiveSegue.swift */; };
@@ -16,18 +15,18 @@
 		F23D101A1E7D2F8A006CC9FF /* Carousel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23D10191E7D2F8A006CC9FF /* Carousel.storyboard */; };
 		F23D101C1E7D2F95006CC9FF /* Archive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23D101B1E7D2F95006CC9FF /* Archive.storyboard */; };
 		F23D101E1E7D3468006CC9FF /* MainToNotesSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D101D1E7D3468006CC9FF /* MainToNotesSegue.swift */; };
-		F29C67221E7CD82400F34DF3 /* NotesTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29C67211E7CD82400F34DF3 /* NotesTextView.swift */; };
-		F29C67241E7CD85700F34DF3 /* NotesImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29C67231E7CD85700F34DF3 /* NotesImageView.swift */; };
+		F23D10201E7D362D006CC9FF /* CarouselCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D101F1E7D362D006CC9FF /* CarouselCollectionViewController.swift */; };
+		F23D10221E7D4F7A006CC9FF /* NotesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D10211E7D4F7A006CC9FF /* NotesTableCell.swift */; };
+		F23D10241E7DD2B7006CC9FF /* NotesWithBulletTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D10231E7DD2B7006CC9FF /* NotesWithBulletTableCell.swift */; };
+		F23D10261E7DE801006CC9FF /* NotesPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D10251E7DE801006CC9FF /* NotesPagingViewController.swift */; };
 		F2D96EAC1E7CBBCC005F32C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D96EAB1E7CBBCC005F32C7 /* AppDelegate.swift */; };
 		F2D96EAE1E7CBBCC005F32C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D96EAD1E7CBBCC005F32C7 /* MainViewController.swift */; };
 		F2D96EB11E7CBBCC005F32C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2D96EAF1E7CBBCC005F32C7 /* Main.storyboard */; };
 		F2D96EB41E7CBBCC005F32C7 /* Bullet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2D96EB21E7CBBCC005F32C7 /* Bullet.xcdatamodeld */; };
 		F2D96EB61E7CBBCC005F32C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D96EB51E7CBBCC005F32C7 /* Assets.xcassets */; };
 		F2D96EB91E7CBBCC005F32C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2D96EB71E7CBBCC005F32C7 /* LaunchScreen.storyboard */; };
-		F2D96EC71E7CBF53005F32C7 /* NotesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D96EC61E7CBF53005F32C7 /* NotesPageViewController.swift */; };
 		F2D96EC91E7CBF5E005F32C7 /* CarouselPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D96EC81E7CBF5E005F32C7 /* CarouselPageViewController.swift */; };
 		F2D96ECC1E7CBF76005F32C7 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D96ECA1E7CBF76005F32C7 /* NotesTableViewController.swift */; };
-		F2D96ED51E7CC064005F32C7 /* CarouselCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D96ED31E7CC064005F32C7 /* CarouselCollectionViewController.swift */; };
 		F2D96EDA1E7CC0AA005F32C7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D96ED81E7CC0AA005F32C7 /* SearchViewController.swift */; };
 		F2D96EDE1E7CC0D3005F32C7 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D96EDC1E7CC0D3005F32C7 /* CarouselViewController.swift */; };
 		F2D96EE41E7CC0F4005F32C7 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D96EE21E7CC0F4005F32C7 /* NotesViewController.swift */; };
@@ -39,7 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F23D100D1E7D220C006CC9FF /* NotesBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesBarViewController.swift; sourceTree = "<group>"; };
 		F23D100F1E7D2602006CC9FF /* NotesToCarouselSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesToCarouselSegue.swift; sourceTree = "<group>"; };
 		F23D10111E7D2610006CC9FF /* CarouselToNotesSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselToNotesSegue.swift; sourceTree = "<group>"; };
 		F23D10131E7D261D006CC9FF /* CarouselToArchiveSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselToArchiveSegue.swift; sourceTree = "<group>"; };
@@ -48,8 +46,10 @@
 		F23D10191E7D2F8A006CC9FF /* Carousel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Carousel.storyboard; sourceTree = "<group>"; };
 		F23D101B1E7D2F95006CC9FF /* Archive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Archive.storyboard; sourceTree = "<group>"; };
 		F23D101D1E7D3468006CC9FF /* MainToNotesSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainToNotesSegue.swift; sourceTree = "<group>"; };
-		F29C67211E7CD82400F34DF3 /* NotesTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTextView.swift; sourceTree = "<group>"; };
-		F29C67231E7CD85700F34DF3 /* NotesImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesImageView.swift; sourceTree = "<group>"; };
+		F23D101F1E7D362D006CC9FF /* CarouselCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewController.swift; sourceTree = "<group>"; };
+		F23D10211E7D4F7A006CC9FF /* NotesTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableCell.swift; sourceTree = "<group>"; };
+		F23D10231E7DD2B7006CC9FF /* NotesWithBulletTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesWithBulletTableCell.swift; sourceTree = "<group>"; };
+		F23D10251E7DE801006CC9FF /* NotesPagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesPagingViewController.swift; sourceTree = "<group>"; };
 		F2D96EA81E7CBBCC005F32C7 /* Bullet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bullet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D96EAB1E7CBBCC005F32C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2D96EAD1E7CBBCC005F32C7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -58,10 +58,8 @@
 		F2D96EB51E7CBBCC005F32C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2D96EB81E7CBBCC005F32C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2D96EBA1E7CBBCC005F32C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2D96EC61E7CBF53005F32C7 /* NotesPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesPageViewController.swift; sourceTree = "<group>"; };
 		F2D96EC81E7CBF5E005F32C7 /* CarouselPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselPageViewController.swift; sourceTree = "<group>"; };
 		F2D96ECA1E7CBF76005F32C7 /* NotesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
-		F2D96ED31E7CC064005F32C7 /* CarouselCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselCollectionViewController.swift; path = ../CarouselCollectionViewController.swift; sourceTree = "<group>"; };
 		F2D96ED81E7CC0AA005F32C7 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F2D96EDC1E7CC0D3005F32C7 /* CarouselViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
 		F2D96EE21E7CC0F4005F32C7 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -103,9 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				F2D96EAB1E7CBBCC005F32C7 /* AppDelegate.swift */,
+				F2D96EAF1E7CBBCC005F32C7 /* Main.storyboard */,
 				F2D96EAD1E7CBBCC005F32C7 /* MainViewController.swift */,
 				F23D101D1E7D3468006CC9FF /* MainToNotesSegue.swift */,
-				F2D96EAF1E7CBBCC005F32C7 /* Main.storyboard */,
 				F2D96EB51E7CBBCC005F32C7 /* Assets.xcassets */,
 				F2D96EB71E7CBBCC005F32C7 /* LaunchScreen.storyboard */,
 				F2D96EBA1E7CBBCC005F32C7 /* Info.plist */,
@@ -123,12 +121,11 @@
 			isa = PBXGroup;
 			children = (
 				F23D10171E7D2F76006CC9FF /* Notes.storyboard */,
-				F2D96EC61E7CBF53005F32C7 /* NotesPageViewController.swift */,
+				F23D10251E7DE801006CC9FF /* NotesPagingViewController.swift */,
 				F2D96EE21E7CC0F4005F32C7 /* NotesViewController.swift */,
 				F2D96ECA1E7CBF76005F32C7 /* NotesTableViewController.swift */,
-				F29C67211E7CD82400F34DF3 /* NotesTextView.swift */,
-				F29C67231E7CD85700F34DF3 /* NotesImageView.swift */,
-				F23D100D1E7D220C006CC9FF /* NotesBarViewController.swift */,
+				F23D10211E7D4F7A006CC9FF /* NotesTableCell.swift */,
+				F23D10231E7DD2B7006CC9FF /* NotesWithBulletTableCell.swift */,
 				F23D100F1E7D2602006CC9FF /* NotesToCarouselSegue.swift */,
 			);
 			name = NotesMVC;
@@ -137,10 +134,10 @@
 		F2D96ECF1E7CBFAB005F32C7 /* CarouselMVC */ = {
 			isa = PBXGroup;
 			children = (
+				F23D101F1E7D362D006CC9FF /* CarouselCollectionViewController.swift */,
 				F23D10191E7D2F8A006CC9FF /* Carousel.storyboard */,
 				F2D96EC81E7CBF5E005F32C7 /* CarouselPageViewController.swift */,
 				F2D96EDC1E7CC0D3005F32C7 /* CarouselViewController.swift */,
-				F2D96ED31E7CC064005F32C7 /* CarouselCollectionViewController.swift */,
 				F23D10111E7D2610006CC9FF /* CarouselToNotesSegue.swift */,
 				F23D10131E7D261D006CC9FF /* CarouselToArchiveSegue.swift */,
 			);
@@ -256,23 +253,22 @@
 				F2D96EEA1E7CC165005F32C7 /* Page.swift in Sources */,
 				F2D96EDA1E7CC0AA005F32C7 /* SearchViewController.swift in Sources */,
 				F2D96EE41E7CC0F4005F32C7 /* NotesViewController.swift in Sources */,
-				F23D100E1E7D220C006CC9FF /* NotesBarViewController.swift in Sources */,
 				F23D10141E7D261D006CC9FF /* CarouselToArchiveSegue.swift in Sources */,
 				F2D96EEF1E7CC18B005F32C7 /* ArchiveTableViewController.swift in Sources */,
 				F2D96ECC1E7CBF76005F32C7 /* NotesTableViewController.swift in Sources */,
+				F23D10221E7D4F7A006CC9FF /* NotesTableCell.swift in Sources */,
 				F2D96EC91E7CBF5E005F32C7 /* CarouselPageViewController.swift in Sources */,
+				F23D10241E7DD2B7006CC9FF /* NotesWithBulletTableCell.swift in Sources */,
 				F23D10121E7D2610006CC9FF /* CarouselToNotesSegue.swift in Sources */,
 				F23D10101E7D2602006CC9FF /* NotesToCarouselSegue.swift in Sources */,
 				F2D96EE81E7CC151005F32C7 /* Entry.swift in Sources */,
 				F23D101E1E7D3468006CC9FF /* MainToNotesSegue.swift in Sources */,
-				F2D96ED51E7CC064005F32C7 /* CarouselCollectionViewController.swift in Sources */,
-				F29C67221E7CD82400F34DF3 /* NotesTextView.swift in Sources */,
-				F2D96EC71E7CBF53005F32C7 /* NotesPageViewController.swift in Sources */,
+				F23D10261E7DE801006CC9FF /* NotesPagingViewController.swift in Sources */,
 				F2D96EAE1E7CBBCC005F32C7 /* MainViewController.swift in Sources */,
 				F2D96EAC1E7CBBCC005F32C7 /* AppDelegate.swift in Sources */,
 				F2D96EF71E7CC1E3005F32C7 /* ArchiveCollectionViewController.swift in Sources */,
 				F2D96EFA1E7CC642005F32C7 /* DateConstants.swift in Sources */,
-				F29C67241E7CD85700F34DF3 /* NotesImageView.swift in Sources */,
+				F23D10201E7D362D006CC9FF /* CarouselCollectionViewController.swift in Sources */,
 				F2D96EB41E7CBBCC005F32C7 /* Bullet.xcdatamodeld in Sources */,
 				F23D10161E7D262B006CC9FF /* ArchiveToCarouselSegue.swift in Sources */,
 			);

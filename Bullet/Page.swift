@@ -18,6 +18,10 @@ class Page: NSObject, NSCoding {
     var dateReferenced: Date?
     var isPageIdentifiedByDateReferenced: Bool
     
+    override var hashValue: Int {
+        return dateCreated.hashValue
+    }
+    
     var entries: [Entry]
     
     var entriesVisibleOnly: [Entry] {
@@ -32,6 +36,38 @@ class Page: NSObject, NSCoding {
         })
     }
     
+    func insertVisibleEntryAfter(_ newEntry: Entry, at index: Int) {
+        let entriesVisibleOnly = self.entriesVisibleOnly
+        if index < entriesVisibleOnly.count {
+            let existingEntry = entriesVisibleOnly[index]
+            if let existingEntryIndex = entries.index(of: existingEntry) {
+                let newEntryIndex = entries.index(after: existingEntryIndex)
+                entries.insert(newEntry, at: newEntryIndex)
+                return
+            }
+        }
+        entries.append(newEntry)
+    }
+    
+    func insertHiddenEntryAfter(_ newEntry: Entry, at index: Int) {
+        let entriesHiddenOnly = self.entriesHiddenOnly
+        if index < entriesHiddenOnly.count {
+            let existingEntry = entriesHiddenOnly[index]
+            if let existingEntryIndex = entries.index(of: existingEntry) {
+                let newEntryIndex = entries.index(after: existingEntryIndex)
+                entries.insert(newEntry, at: newEntryIndex)
+                return
+            }
+        }
+        entries.append(newEntry)
+    }
+    
+    func removeEntry(_ entry: Entry) {
+        if let entryIndex = entries.index(of: entry) {
+            entries.remove(at: entryIndex)
+        }
+    }
+    
     override init() {
         dateCreated = Date()
         dateLastModified = dateCreated
@@ -40,7 +76,7 @@ class Page: NSObject, NSCoding {
         entries = []
         
         title = DateConstants.getFormattedString(of: dateReferenced!)
-        subtitle = DateConstants.getDayOfWeek(of: dateReferenced!).debugDescription.capitalized
+        subtitle = DateConstants.getDayOfWeekString(of: dateReferenced!)
     }
     
     required init(coder aDecoder: NSCoder) {

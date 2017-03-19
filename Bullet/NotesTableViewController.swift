@@ -9,10 +9,20 @@
 import UIKit
 
 class NotesTableViewController: UITableViewController {
-        
+    
+    var page: Page?
+    var isHiddenVisible: Bool = false
+    
+    var isDragging: Bool = false
+    var isDraggingDownAtTop: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.scrollIndicatorInsets.top = 40
+        tableView.showsVerticalScrollIndicator = true
+        tableView.contentInset.top = 40
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,24 +38,156 @@ class NotesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        if let page = self.page {
+            if isHiddenVisible && page.entriesHiddenOnly.count > 0 {
+                return 2
+            }
+            return 1
+        }
         return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        if let page = self.page {
+            switch section {
+            case 0: return page.entriesVisibleOnly.count
+            case 1: return page.entriesHiddenOnly.count
+            default: break
+            }
+        }
         return 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        let entry = getEntry(from: indexPath)!
+        
+        if entry.type == .paragraph {
+            return createNotesTableCell(tableView, cellForRowAt: indexPath, with: entry)
+        } else {
+            return createNotesWithBulletTableCell(tableView, cellForRowAt: indexPath, with: entry)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if section == 0 {
+            view.isHidden = true
+            view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 0)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Hidden"
+        }
+        return nil
+    }
+    
+    func createNotesTableCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, with entry: Entry) -> NotesTableCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "notesTableCell", for: indexPath) as! NotesTableCell
+        cell.tableViewController = self
+        cell.entry = entry
         return cell
     }
-    */
+    
+    func createNotesWithBulletTableCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, with entry: Entry) -> NotesWithBulletTableCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "notesWithBulletTableCell", for: indexPath) as! NotesWithBulletTableCell
+        cell.tableViewController = self
+        cell.entry = entry
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func getEntry(from indexPath: IndexPath) -> Entry? {
+        var entries: [Entry]?
+        
+        if indexPath.section == 0 {
+            entries = page?.entriesVisibleOnly
+        } else if indexPath.section == 1 {
+            entries = page?.entriesHiddenOnly
+        }
+        
+        return entries?[indexPath.row]
+    }
+    
+    func insertRowAfter(_ cell: NotesTableCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            // calculate new index path
+            var newIndexPath = indexPath
+            newIndexPath.row += 1
+            
+            // create a new entry
+            let newEntry: Entry
+            if let existingCellEntry = cell.entry {
+                newEntry = Entry(type: existingCellEntry.type, text: "")
+                newEntry.isHidden = existingCellEntry.isHidden
+            } else {
+                newEntry = Entry()
+                newEntry.isHidden = indexPath.section == 1
+            }
+            
+            // insert new entry into model
+            if newEntry.isHidden {
+                page?.insertHiddenEntryAfter(newEntry, at: indexPath.row)
+            } else {
+                page?.insertVisibleEntryAfter(newEntry, at: indexPath.row)
+            }
+            
+            // insert new entry into tableview
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+            // switch firstresponder
+            let newCell = tableView.cellForRow(at: newIndexPath) as! NotesTableCell
+            newCell.notesTextView.becomeFirstResponder()
+        }
+    }
+    
+    func removeRowAt(_ cell: NotesTableCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            let entry = cell.entry
+            
+            if indexPath.row > 0 {
+                // update model
+                page?.removeEntry(entry!)
+                
+                // update tableview
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                // switch firstresponder
+                var upperIndexPath = indexPath
+                upperIndexPath.row -= 1
+                let upperCell = tableView.cellForRow(at: upperIndexPath) as! NotesTableCell
+                upperCell.notesTextView.becomeFirstResponder()
+            }
+        }
+    }
+    
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isDragging = true
+    }
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        isDragging = false
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if isDragging && scrollView.contentOffset.y < -tableView.contentInset.top {
+            scrollView.contentOffset.y = -tableView.contentInset.top
+            isDraggingDownAtTop = true
+        } else {
+            isDraggingDownAtTop = false
+        }
+    }
+    
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9W3-7r-UAN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,25 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="Fou-TO-I1Z" kind="custom" identifier="mainToNotes" customClass="MainToNotesSegue" id="dUg-ab-Xn6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-604" y="191"/>
-        </scene>
         <!--Carousel Page View Controller-->
         <scene sceneID="D2w-Qn-JKA">
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="8xE-u5-xJF" customClass="CarouselPageViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="Fou-TO-I1Z" kind="custom" identifier="carouselToNotes" customClass="CarouselToNotesSegue" id="Ah2-vP-DIr"/>
-                        <segue destination="Bmm-ac-9yJ" kind="custom" identifier="carouselToArchive" customClass="CarouselToArchiveSegue" id="IEW-5m-vcw"/>
+                        <segue destination="Bmm-ac-9yJ" kind="show" id="6CK-SA-1rB"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIg-N7-mPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -54,32 +41,46 @@
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Bmm-ac-9yJ" id="ejF-SG-dEi"/>
-                            <outlet property="delegate" destination="Bmm-ac-9yJ" id="exl-2C-zqf"/>
+                            <outlet property="delegate" destination="Bmm-ac-9yJ" id="j1G-JW-jLf"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="8xE-u5-xJF" kind="custom" identifier="archiveToCarousel" customClass="ArchiveToCarouselSegue" id="ScU-PP-E7P"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qU1-BE-JSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="369" y="2136"/>
         </scene>
-        <!--Notes Page View Controller-->
-        <scene sceneID="Ze2-gO-qZ7">
+        <!--Navigation Controller-->
+        <scene sceneID="zqc-F2-zYm">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Fou-TO-I1Z" customClass="NotesPageViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="9W3-7r-UAN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aPN-7k-Wwt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="gAC-jJ-KSw">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
-                        <segue destination="8xE-u5-xJF" kind="custom" identifier="notesToCarousel" customClass="NotesToCarouselSegue" id="hTw-2y-6BN"/>
+                        <segue destination="LIE-4v-IKf" kind="relationship" relationship="rootViewController" id="4Rh-MU-iXc"/>
                     </connections>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gq6-dJ-jU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Av1-Vo-2CN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="370" y="212"/>
+            <point key="canvasLocation" x="-668" y="189"/>
+        </scene>
+        <!--Notes Paging View Controller-->
+        <scene sceneID="Rgi-8U-PDw">
+            <objects>
+                <viewController id="LIE-4v-IKf" customClass="NotesPagingViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="OEa-aD-6Hv"/>
+                    <connections>
+                        <segue destination="8xE-u5-xJF" kind="show" id="oGZ-g3-Ox0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bMh-RQ-aTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="369" y="190"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="dUg-ab-Xn6"/>
-        <segue reference="hTw-2y-6BN"/>
-    </inferredMetricsTieBreakers>
 </document>

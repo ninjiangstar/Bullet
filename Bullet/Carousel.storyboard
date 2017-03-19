@@ -12,7 +12,7 @@
         <!--Carousel View Controller-->
         <scene sceneID="QjU-Hq-25K">
             <objects>
-                <viewController id="d9m-ab-jKI" customClass="CarouselViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Carousel" id="d9m-ab-jKI" customClass="CarouselViewController" customModule="Bullet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dVH-dd-1Vy"/>
                         <viewControllerLayoutGuide type="bottom" id="Z6K-n3-ixE"/>

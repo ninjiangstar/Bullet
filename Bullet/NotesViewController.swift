@@ -8,12 +8,53 @@
 
 import UIKit
 
-class NotesViewController: UIViewController {
+class NotesViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    var page: Page?
+    var containerController: NotesTableViewController?
+    
+    @IBOutlet weak var primaryLabel: UILabel!
+    @IBOutlet weak var secondaryLabel: UILabel!
+    @IBOutlet weak var barView: UIView!
+    @IBOutlet weak var containerView: UIView!
+
+    @IBAction func infoButton(_ sender: Any) {
+    
+    }
+    
+    var tapBarViewGestureRecognizer: UITapGestureRecognizer?
+    var panViewGestureRecognizer: UIPanGestureRecognizer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.white
+        
+        primaryLabel.text = page?.title
+        primaryLabel.font = primaryLabel.font.withSize(15)
+        secondaryLabel.text = page?.subtitle
+        secondaryLabel.font = secondaryLabel.font.withSize(12)
+    
+        tapBarViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapBarViewGesture))
+        panViewGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panViewGesture))
+        panViewGestureRecognizer!.delegate = self
+        
+        barView.addGestureRecognizer(tapBarViewGestureRecognizer!)
+        self.view.addGestureRecognizer(panViewGestureRecognizer!)
+    }
+    
+    func handleTapBarViewGesture(_ recognizer: UITapGestureRecognizer) {
+        print("HEY")
+    }
+    
+    func panViewGesture(_ recognizer: UIPanGestureRecognizer) {
+        if recognizer.state == .changed {
+            if let controller = containerController {
+                if controller.isDraggingDownAtTop {
+                    print("SEGUE THAT SHIT")
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +63,17 @@ class NotesViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "notesTableViewEmbed" {
+            if segue.destination is NotesTableViewController {
+                let controller = segue.destination as! NotesTableViewController
+                controller.page = self.page
+                self.containerController = controller
+            }
+        }
     }
-    */
-
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }
